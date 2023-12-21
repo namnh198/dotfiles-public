@@ -1,0 +1,13 @@
+# Ignore everything 
+/*
+!.gitignore
+.DS_Store
+
+# Except for the config directory
+!.config/
+!.config/*
+.config/.DS_Store
+
+# Git Config
+!.gitconfig
+!README.md
