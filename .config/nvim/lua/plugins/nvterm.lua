@@ -7,25 +7,12 @@ return {
     local opts = { noremap = true, silent = true }
     local keymaps = {
       {
-        "n",
-        "<leader>h",
-        function()
-          terminal.new("horizontal")
-        end,
-      },
-      {
-        "n",
-        "<leader>v",
-        function()
-          terminal.new("vertical")
-        end,
-      },
-      {
         toggle_modes,
         "<A-i>",
         function()
           terminal.toggle("float")
         end,
+        { desc = "Toggle Float Terminal" },
       },
       {
         toggle_modes,
@@ -33,6 +20,7 @@ return {
         function()
           terminal.toggle("horizontal")
         end,
+        { desc = "Toggle Horizontal Terminal" },
       },
       {
         toggle_modes,
@@ -40,6 +28,7 @@ return {
         function()
           terminal.toggle("vertical")
         end,
+        { desc = "Toggle Vertical Terminal" },
       },
     }
 
