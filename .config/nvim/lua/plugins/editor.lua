@@ -31,6 +31,20 @@ return {
         },
         follow_current_file = { enabled = true },
       },
+      window = {
+        mapping_options = {
+          noremap = true,
+          nowait = true,
+        },
+        mappings = {
+          ["z"] = "close_node",
+          ["Z"] = "close_all_nodes",
+          ["<TAB>"] = "next_source",
+          ["<S-TAB>"] = "prev_source",
+          ["l"] = "open_with_window_picker",
+          ["o"] = "open",
+        },
+      },
       default_component_configs = {
         git_status = {
           symbols = {
@@ -39,12 +53,21 @@ return {
             untracked = "",
             ignored = "◌",
             unstaged = "󰜀",
-            staged = "",
+            staged = "✓",
             conflict = "",
           },
         },
       },
     },
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
 
   {
@@ -59,7 +82,6 @@ return {
       },
     },
   },
-
   {
     "lewis6991/gitsigns.nvim",
     version = "*",

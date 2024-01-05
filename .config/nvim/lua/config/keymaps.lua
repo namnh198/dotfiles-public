@@ -14,12 +14,14 @@ keymap.set("n", "-", "<cmd>foldclose<CR>", { desc = "Close code fold", remap = t
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
 
+-- Save file
+keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save file", remap = true })
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Disable continuations
 keymap.set("n", "<leader>o", "o<Esc>^Da", opts)
-keymap.set("n", "<leader>O", "o<Esc>^Da", opts)
+keymap.set("n", "<leader>O", "O<Esc>^Da", opts)
 
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
