@@ -1,0 +1,27 @@
+*.o
+\#*#
+#
+.#*
+.*~
+*~
+.DS_Store
+samples
+.netrwhist
+.bundle
+
+node_modules
+vendor
+bower_components
+
+# Enviroment
+.env
+.env.*
+!.env.example
+
+# Vim
+Session.vim
+.vim/bundle/
+.vim/snippets/
+.luarc.json
+
+.ddev

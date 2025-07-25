@@ -1,0 +1,7 @@
+.DS_Store
+.config/tmux/plugins/
+.config/raycast/
+.config/fzf/
+.config/gh
+.config/github-copilot/
+.config/nvm

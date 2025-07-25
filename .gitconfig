@@ -1,0 +1,120 @@
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = nvim
+  ignorecase = false 
+  pager = delta
+
+[user]
+  name = namnh198
+  email = me@namhoainguyen.com
+
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  features = catppuccin-mocha
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[pull]
+  rebase = false
+
+[delta "catppuccin-mocha"]
+  blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a"
+  commit-decoration-style = "box ul"
+  dark = true
+  file-decoration-style = "#cdd6f4"
+  file-style = "#cdd6f4"
+  hunk-header-decoration-style = "box ul"
+  hunk-header-file-style = "bold"
+  hunk-header-line-number-style = "bold #a6adc8"
+  hunk-header-style = "file line-number syntax"
+  line-numbers = true
+  line-numbers-left-style = "#6c7086"
+  line-numbers-minus-style = "bold #f38ba8"
+  line-numbers-plus-style = "bold #a6e3a1"
+  line-numbers-right-style = "#6c7086"
+  line-numbers-zero-style = "#6c7086"
+  # 25% red 75% base
+  minus-emph-style = "bold syntax #53394c"
+  # 10% red 90% base
+  minus-style = "syntax #35293b"
+  # 25% green 75% base
+  plus-emph-style = "bold syntax #40504b"
+  # 10% green 90% base
+  plus-style = "syntax #2c333a"
+  map-styles = \
+    bold purple => syntax "#494060", \
+    bold blue => syntax "#394361", \
+    bold cyan => syntax "#384d5e", \
+    bold yellow => syntax "#544f4e"
+  # Should match the name of the bat theme
+  syntax-theme = "Catppuccin Mocha"
+
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
+
+[alias]
+  a = add
+  d = diff
+  ch = checkout
+  co = commit
+  ca = commit --amend
+  ps = "!f() { git push ${1-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
+  pl = "!f() { git pull ${1-origin} $(git rev-parse --abbrev-ref HEAD); }; f"
+  st = status
+  br = branch
+  ba = branch -a
+  bm = branch --merged
+  bn = branch --no-merged
+  df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  open = "!hub browse"
+  type = cat-file -t
+  dump = cat-file -p
+  find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+  # edit conflicted file on merge
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  # add conflicted file on merge
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+[hub]
+  protocol = https
+
+[diff]
+  tool = nvimdiff
+
+[difftool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  path = 
+
+[mergetool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+
+[init]
+  defaultBranch = main
