@@ -9,3 +9,4 @@ LICENSE
 LICENSE.txt
 .gitignore
 .stow-local-ignore
+.stowrc
