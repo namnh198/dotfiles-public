@@ -16,6 +16,8 @@ end
 
 vim.print = _G.dd
 
+pcall(require, "config.env")
+
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy").load({
   -- debug = true
