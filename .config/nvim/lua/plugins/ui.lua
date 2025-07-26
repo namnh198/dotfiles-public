@@ -90,21 +90,52 @@ return {
   },
 
   {
-    "folke/snacks.nvim",
+    "snacks.nvim",
+    ---@diagnostic disable-next-line: unused-local
+    opts = function(_, opts)
+      local snacks = require("snacks")
+      if pcall(require, "copilot") then
+        snacks
+          .toggle({
+            name = "Toggle (Copilot Completion)",
+            color = {
+              enabled = "azure",
+              disabled = "orange",
+            },
+            get = function()
+              return not require("copilot.client").is_disabled()
+            end,
+            set = function(state)
+              if state then
+                require("copilot.command").enable()
+              else
+                require("copilot.command").disable()
+              end
+            end,
+          })
+          :map("<leader>ta")
+      end
+    end,
+  },
+
+  {
+    "snacks.nvim",
     opts = {
+      image = {
+        force = false,
+        enabled = true,
+        debug = { request = false, convert = false, placement = false },
+        math = { enabled = true },
+        doc = { inline = true, float = true },
+      },
       picker = {
         enabled = true,
         exclude = {
           "vendor",
-          "dist",
-          "build",
-          ".next",
           "node_modules",
           ".git",
-          ".svn",
           "bun.lock",
           "yarn.lock",
-          "pnpm-lock.yaml",
           "package-lock.json",
           ".vscode",
           ".cursor",
