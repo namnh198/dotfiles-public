@@ -44,5 +44,5 @@
 ## How to setup
 
 ```bash
-stow .
+curl -fsSL https://raw.githubusercontent.com/namnh198/dotfiles-public/refs/heads/main/macOS/setup.sh | bash
 ```
