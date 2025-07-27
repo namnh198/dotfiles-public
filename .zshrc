@@ -53,7 +53,7 @@ eval "$(zoxide init zsh)"
 alias cd="z"
 
 # bat
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="catppuccin-mocha"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 alias cat="bat --style=plain --paging=never --color=always"
 
