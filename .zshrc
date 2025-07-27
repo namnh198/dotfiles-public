@@ -75,9 +75,10 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475A \
 --color=border:#313244,label:#CDD6F4"
 
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --strip-cwd-prefix --exclude .git --exclude node_mocules --exclude .cache --exclude .DS_Store"
+export FZF_DEFAULT_COMAND="fd --hidden --follow --strip-cwd-prefix --exclude .git --exclude node_mocules --exclude vendor --exclude storage --exclude var --exclude .DS_Store"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export FZF_TMUX_OPTS=" -p90%,70%"
 
 # mise 
 eval "$(mise activate zsh)"
