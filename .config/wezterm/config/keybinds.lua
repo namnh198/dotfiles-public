@@ -17,11 +17,11 @@ return {
       mods = "CMD",
       action = wezterm.action.CopyTo("ClipboardAndPrimarySelection"),
     },
-    {
-      key = "t",
-      mods = "CMD",
-      action = wezterm.action.DisableDefaultAssignment,
-    },
+    -- {
+    --   key = "t",
+    --   mods = "CMD",
+    --   action = wezterm.action.DisableDefaultAssignment,
+    -- },
   },
   mouse_bindings = {
     -- Ctrl + Click to open link

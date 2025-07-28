@@ -23,9 +23,6 @@ M.load = function(opts)
       {
         "LazyVim/LazyVim",
         import = "lazyvim.plugins",
-        opts = {
-          colorscheme = "catppuccin",
-        },
       },
       -- import/override with your plugins
       { import = "plugins" },
@@ -39,7 +36,7 @@ M.load = function(opts)
       version = false, -- always use the latest git commit
       -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
-    install = { colorscheme = { "tokyonight", "habamax" } },
+    install = { colorscheme = { "catppuccin", "tokyonight", "habamax" } },
     checker = {
       enabled = true, -- check for plugin updates periodically
       notify = false, -- notify on update
