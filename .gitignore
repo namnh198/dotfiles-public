@@ -2,6 +2,7 @@
 .config/nvim/lua/config/env.lua
 .config/tmux/plugins/
 .config/raycast/
+.config/ddev
 .config/fzf/
 .config/gh
 .config/github-copilot/
