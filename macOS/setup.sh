@@ -43,7 +43,8 @@ brew install git \
   fd \
   eza \
   lazygit \
-  mise
+  mise \
+  yq
 
 echo -e "${sucess}All packages installed${reset}"
 
