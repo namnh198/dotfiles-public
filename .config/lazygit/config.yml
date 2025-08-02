@@ -1,3 +1,8 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never --hunk-header-style=omit
+
 gui:
   theme:
     activeBorderColor:
@@ -9,8 +14,6 @@ gui:
       - "#89b4fa"
     selectedLineBgColor:
       - "#313244"
-    selectedRangeBgColor:
-      - "#313244"
     cherryPickedCommitBgColor:
       - "#45475a"
     cherryPickedCommitFgColor:
@@ -21,6 +24,11 @@ gui:
       - "#cdd6f4"
     searchingActiveBorderColor:
       - "#f9e2af"
+  authorColors:
+    "*": "#b4befe"
+  nerdFontsVersion: "3"
+  border: single
+  showBottomLine: true
 customCommands:
   - key: "C"
     command: "git cz"
