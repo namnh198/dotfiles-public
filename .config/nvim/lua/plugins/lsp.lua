@@ -47,7 +47,6 @@ return {
             return require("lspconfig.util").root_pattern(".git")(...)
           end,
         },
-        emmet_ls = {},
       },
     },
   },
