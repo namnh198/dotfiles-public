@@ -7,3 +7,7 @@
 .config/gh
 .config/github-copilot/
 .config/iterm2/
+.config/zsh/*
+!.config/zsh/.zshrc
+!.config/zsh/plugins/
+!.config/zsh/plugins/*
