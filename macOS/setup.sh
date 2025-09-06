@@ -49,7 +49,9 @@ echo -e "${sucess}All packages installed${reset}"
 
 echo -e "\n${info}Installing application...${reset}"
 
-brew install --cask ghostty \
+brew install --cask \
+  font-jetbrains-mono-nerd-font \
+  ghostty \
   brave-browser \
   insomina \
   mac-mouse-fix \
