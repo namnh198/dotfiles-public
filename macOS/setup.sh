@@ -43,7 +43,6 @@ brew install git \
   fd \
   eza \
   lazygit \
-  mise \
   yq
 
 echo -e "${sucess}All packages installed${reset}"
@@ -51,7 +50,6 @@ echo -e "${sucess}All packages installed${reset}"
 echo -e "\n${info}Installing application...${reset}"
 
 brew install --cask ghostty \
-  iterm2 \
   brave-browser \
   insomina \
   mac-mouse-fix \
@@ -59,7 +57,7 @@ brew install --cask ghostty \
   raycast \
   orbstack \
   visual-studio-code \
-  the unarchived
+  the-unarchived
 
 echo -e "${sucess}All apps installed${reset}"
 echo -e "${info}MacOS Settings...${reset}"
