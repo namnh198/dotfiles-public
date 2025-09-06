@@ -3,15 +3,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "astro",
         "cpp",
         "css",
-        "gitignore",
-        "go",
         "graphql",
-        "php",
-        "scss",
-        "sql",
         "svelte",
         "vue",
       },
