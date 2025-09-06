@@ -33,4 +33,12 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      latex = {
+        enabled = false,
+      },
+    },
+  },
 }
