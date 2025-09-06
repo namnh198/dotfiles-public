@@ -1,9 +1,8 @@
-FZF_FD_EXCLUDE="--exclude .git --exclude node_modules --exclude vendor --exclude storage --exclude var --exclude .DS_Store --exclude .next"
 export FZF_TMUX=true
-export FZF_CTRL_T_COMMAND="fd --type f --hidden $FZF_FD_EXCLUDE"
+export FZF_CTRL_T_COMMAND="fd --type f --hidden"
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always --group-directories-first {} | head -200'"
-export FZF_ALT_C_COMMAND="fd --type d --hidden $FZF_FD_EXCLUDE"
+export FZF_ALT_C_COMMAND="fd --type d --hidden"
 
 # catppuccin-mocha themes
 export FZF_DEFAULT_OPTS=" \
