@@ -1,4 +1,4 @@
-local HOME = os.getenv("HOME")
+local NVIM_DIR_CONF = vim.env.HOME .. "/.config/nvim"
 
 return {
   {
@@ -50,7 +50,7 @@ return {
     opts = {
       linters = {
         ["markdownlint-cli2"] = {
-          args = { "--config", HOME .. "/.markdownlint-cli2.yaml", "--" },
+          args = { "--config", NVIM_DIR_CONF .. "/.markdownlint-cli2.yaml", "--" },
         },
       },
     },
