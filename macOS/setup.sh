@@ -23,7 +23,7 @@ fi
 
 if [[ ! -f "/opt/homebrew/bin/brew" ]]; then
   echo -e "${warning}Brew not found, Try installing...${reset}"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/opt/homebrew/bin/brew shellenv)"
   echo -e "${sucess}Brew installed successfully${reset}"
 else
@@ -53,21 +53,22 @@ brew install --cask \
   font-jetbrains-mono-nerd-font \
   ghostty \
   brave-browser \
-  insomina \
+  insomnia \
   mac-mouse-fix \
   openkey \
   raycast \
   orbstack \
   visual-studio-code \
-  the-unarchived
+  the-unarchiver
 
 echo -e "${sucess}All apps installed${reset}"
 echo -e "${info}MacOS Settings...${reset}"
 
 defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
 defaults write com.apple.Dock autohide -bool TRUE
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write InitialKeyRepeat -int 15
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
 
 # Clone dotfiles repository
 if [ ! -d "$HOME/.dotfiles" ]; then
