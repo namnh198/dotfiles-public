@@ -90,9 +90,24 @@ return {
   },
 
   {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "LazyFile",
+  },
+
+  {
     "snacks.nvim",
     ---@diagnostic disable-next-line: unused-local
     opts = function(_, opts)
+      local sources = opts.picker.sources or {}
+      local source_names = { "files", "explorer", "grep", "grep_word", "grep_buffers" }
+      local source_opts = { hidden = true, ignored = true, exclude = { ".git", ".DS_Store", ".vscode", ".idea" } }
+
+      for _, name in ipairs(source_names) do
+        sources[name] = source_opts
+      end
+      opts.picker.sources = sources
+
+      -- Toggle copilot
       local snacks = require("snacks")
       if pcall(require, "copilot") then
         snacks
@@ -115,40 +130,8 @@ return {
           })
           :map("<leader>ta")
       end
-    end,
-  },
 
-  {
-    "snacks.nvim",
-    opts = {
-      image = {
-        force = false,
-        enabled = true,
-        debug = { request = false, convert = false, placement = false },
-        math = { enabled = true },
-        doc = { inline = true, float = true },
-      },
-      picker = {
-        enabled = true,
-        exclude = {
-          "vendor",
-          "node_modules",
-          ".git",
-          "bun.lock",
-          "yarn.lock",
-          "package-lock.json",
-          ".vscode",
-          ".cursor",
-          ".idea",
-          ".DS_Store",
-        },
-        sources = {
-          explorer = {
-            hidden = true,
-            ignored = true,
-          },
-        },
-      },
-    },
+      return opts
+    end,
   },
 }

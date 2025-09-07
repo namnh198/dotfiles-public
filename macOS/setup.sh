@@ -6,6 +6,9 @@ error="\033[0;31m"
 info="\033[0;34m"
 reset="\033[0m"
 
+# Ask for the administrator password upfront
+sudo -v
+
 # Install xCode cli tools
 if [[ "$(uname)" == "Darwin" ]]; then
   echo -e "${info}macOS deteted...${reset}"
@@ -15,6 +18,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   else
     echo -e "${info}Installing commandline tools...${reset}"
     xcode-select --install
+    echo -e "${info}Please run script again after installing commandline tools...${reset}"
+    exit
   fi
 else
   echo -e "${error}Script only support macOS${reset}"
@@ -23,7 +28,7 @@ fi
 
 if [[ ! -f "/opt/homebrew/bin/brew" ]]; then
   echo -e "${warning}Brew not found, Try installing...${reset}"
-  sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/opt/homebrew/bin/brew shellenv)"
   echo -e "${sucess}Brew installed successfully${reset}"
 else

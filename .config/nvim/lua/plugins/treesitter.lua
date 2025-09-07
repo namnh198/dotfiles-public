@@ -6,7 +6,6 @@ return {
         "cpp",
         "css",
         "graphql",
-        "svelte",
         "vue",
       },
     },

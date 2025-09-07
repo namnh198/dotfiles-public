@@ -183,12 +183,6 @@ if [ -d ~/Library/Application\ Support/Google/Chrome/ ]; then
   remove_paths
 fi
 
-if [ -d ~/Library/Caches/Arc/User\ Data/Default/Cache ]; then
-  collect_paths ~/Library/Caches/Arc/User\ Data/Default/Cache/*
-  msg 'Clearing Arch Browser Cache Files...'
-  remove_paths
-fi
-
 collect_paths ~/Music/iTunes/iTunes\ Media/Mobile\ Applications/*
 msg 'Cleaning up iOS Applications...'
 remove_paths
@@ -376,7 +370,7 @@ if type "npm" &>/dev/null; then
     msg 'Cleaning up npm cache...'
     npm cache clean --force &>/dev/null
   else
-    collect_paths ~/.npm/*
+    collect_paths ~/.local/share/npm/*
   fi
 fi
 
