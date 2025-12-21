@@ -27,4 +27,5 @@ if command -v nvim >/dev/null 2>&1; then
   alias vimdiff='nvim -d'
   alias vim='nvim'
   alias vi='nvim'
+  alias ncf='cd ~/.config/nvim; nvim .'
 fi
