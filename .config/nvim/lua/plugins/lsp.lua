@@ -26,27 +26,6 @@ return {
             },
           },
         },
-        tailwindcss = {
-          settings = {
-            tailwindCss = {
-              classAttributes = { "class", "className", "classList" },
-              emmetCompletions = true,
-              hovers = true,
-              suggestions = true,
-              -- Uncomment if needed for shadcn/ui
-              experimental = {
-                classRegex = {
-                  { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-                  { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-                  { "cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-                },
-              },
-            },
-          },
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-        },
       },
     },
   },
