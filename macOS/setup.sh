@@ -74,18 +74,18 @@ echo -e "${info}MacOS Settings...${reset}"
 defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
 defaults write com.apple.Dock autohide -bool TRUE
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+
+DOTFILE_DIR="$(pwd)/.dotfiles"
 
 # Clone dotfiles repository
-if [ ! -d "$HOME/.dotfiles" ]; then
+if [ ! -d "$DOTFILE_DIR" ]; then
   echo -e "Cloning dotfiles repository..."
-  git clone https://github.com/namnh198/dotfiles-public ~/.dotfiles
+  git clone https://github.com/namnh198/dotfiles-public "$DOTFILE_DIR"
 fi
 
 # Reset stow
 echo -e "${info} Stowing dotfiles..."
-cd "$HOME/.dotfiles" || exit
+cd "$DOTFILE_DIR" || exit
 
 stow -D .
 stow .
