@@ -1,20 +1,54 @@
-local NVIM_DIR_CONF = vim.env.HOME .. "/.config/nvim"
-
 return {
   {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    config = true,
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- add tsx and treesitter
+      vim.list_extend(opts.ensure_installed, {
+        "cpp",
+        "css",
+        "graphql",
+        "vue",
+      })
+    end,
+  },
+  
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        html = {},
+        cssls = {
+          settings = {
+            css = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            scss = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            less = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+        },
+      },
+    },
   },
 
   {
-    "mfussenegger/nvim-lint",
-    optional = true,
+    "mason-org/mason.nvim",
     opts = {
-      linters = {
-        ["markdownlint-cli2"] = {
-          args = { "--config", NVIM_DIR_CONF .. "/.markdownlint-cli2.yaml", "--" },
-        },
+      ensure_installed = {
+        "html-lsp",
+        "css-lsp",
       },
     },
   },
