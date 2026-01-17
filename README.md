@@ -41,8 +41,14 @@
 - git
 - zsh + (starship)
 
-## How to setup
+## How to setup (MacOS Only)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/namnh198/dotfiles-public/refs/heads/main/macOS/setup.sh | bash
 ```
+
+## Troubleshooting
+
+If you have issue login Antigravity, you can try install extension [Antigravity Cockpit](https://open-vsx.org/vscode/item?itemName=jlcodes.antigravity-cockpit) and login again
+
+If you have any issues, please open an issue [here](https://github.com/namnh198/dotfiles-public/issues/new/choose)

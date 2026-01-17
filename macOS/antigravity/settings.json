@@ -8,6 +8,8 @@
   "editor.minimap.enabled": false,
   "workbench.list.smoothScrolling": true,
   "editor.renderWhitespace": "selection",
+  "debug.console.fontSize": 13,
+  "debug.console.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 13,
   "editor.tabSize": 2,
