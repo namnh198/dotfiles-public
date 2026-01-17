@@ -7,7 +7,6 @@ font-family = JetBrainsMono Nerd Font
 font-size = 14
 cursor-style = bar
 cursor-style-blink = true
-shell-integration-features = no-cursor
 adjust-cell-height = 15%
 #background-opacity = 0.8
 #background-blur-radius = 20
