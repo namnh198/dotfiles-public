@@ -48,7 +48,9 @@ brew install git \
   fd \
   eza \
   lazygit \
-  yq
+  git-delta \
+  yq \
+  antigravity
 
 echo -e "${sucess}All packages installed${reset}"
 
@@ -56,14 +58,14 @@ echo -e "\n${info}Installing application...${reset}"
 
 brew install --cask \
   font-jetbrains-mono-nerd-font \
+  bitwarden \
+  raycast \
   ghostty \
   brave-browser \
   insomnia \
   mac-mouse-fix \
   openkey \
-  raycast \
   orbstack \
-  visual-studio-code \
   the-unarchiver
 
 echo -e "${sucess}All apps installed${reset}"
@@ -87,4 +89,14 @@ cd "$HOME/.dotfiles" || exit
 
 stow -D .
 stow .
+echo -e "${info} Building bat themes cache...${reset}"
 bat cache --build
+
+echo -e "${info} Changing themes fast-synstax-hightlight...${reset}"
+fast-theme XDG:catppuccin-mocha
+
+# install bun
+echo -e "${info} Installing bun packages...${reset}"
+curl -fsSL https://bun.com/install | bash
+echo -e "${info} Installed bun packages...${reset}"
+echo -e "${sucess}Done.${reset}"
