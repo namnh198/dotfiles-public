@@ -6,9 +6,7 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden"
 
 zinit snippet https://raw.githubusercontent.com/catppuccin/fzf/refs/heads/main/themes/catppuccin-fzf-mocha.sh
 
-zinit wait lucid light-mode for \
-  Aloxaf/fzf-tab \
-  trapd00r/LS_COLORS
+zinit wait lucid light-mode for Aloxaf/fzf-tab 
 
 # fzf-tab settings
 setopt GLOB_DOTS

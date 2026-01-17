@@ -35,18 +35,26 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 mkdir -p "$(dirname "$HISTFILE")"
 
-ide() {
-  tmux split-window -v -l 25%
-  tmux split-window -h -l 50%
-}
+if command -v tmux >/dev/null 2>&1; then
+  ide() {
+    tmux split-window -v -l 25%
+    tmux split-window -h -l 50%
+  }
+fi
 
-eval "$(zoxide init zsh --cmd cd)"
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
 
-export BAT_THEME="Catppuccin Mocha"
+if command -v fzf >/dev/null 2>&1; then
+  eval "$(fzf --zsh)"
+fi
 
-eval "$(fzf --zsh)"
 source "$ZDOTDIR/plugins/fzf.zsh"
 source "$ZDOTDIR/plugins/aliases.zsh"
 
 # load local aliases if exists
 [ -f "${ZDOTDIR}/.aliases" ] && . "${ZDOTDIR}/.aliases"
+
+# bun completions
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
