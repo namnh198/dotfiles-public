@@ -33,7 +33,7 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-  
+
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
@@ -154,30 +154,6 @@ return {
         sources[name] = source_opts
       end
       opts.picker.sources = sources
-
-      -- Toggle copilot
-      local snacks = require("snacks")
-      if pcall(require, "copilot") then
-        snacks
-          .toggle({
-            name = "Toggle (Copilot Completion)",
-            color = {
-              enabled = "azure",
-              disabled = "orange",
-            },
-            get = function()
-              return not require("copilot.client").is_disabled()
-            end,
-            set = function(state)
-              if state then
-                require("copilot.command").enable()
-              else
-                require("copilot.command").disable()
-              end
-            end,
-          })
-          :map("<leader>ta")
-      end
 
       return opts
     end,

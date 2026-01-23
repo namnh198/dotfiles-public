@@ -1,17 +1,31 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add tsx and treesitter
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
         "cpp",
         "css",
         "graphql",
         "vue",
-      })
-    end,
+      },
+    },
+    --   query_linter = {
+    --     enable = true,
+    --     use_virtual_text = true,
+    --     lint_events = { "BufWrite", "CursorHold" },
+    --   },
+    --   config = function(_, opts)
+    --     require("nvim-treesitter.configs").setup(opts)
+    --     -- MDX
+    --     vim.filetype.add({
+    --       extension = {
+    --         mdx = "markdown",
+    --       },
+    --     })
+    --     vim.treesitter.language.register("markdown", "mdx")
+    --   end,
   },
-  
+
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -50,6 +64,20 @@ return {
         "html-lsp",
         "css-lsp",
       },
+    },
+  },
+
+  {
+    "gutsavgupta/nvim-gemini-companion",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+    config = function()
+      require("gemini").setup()
+    end,
+    keys = {
+      { "<leader>gg", "<cmd>GeminiToggle<cr>", desc = "Toggle Gemini sidebar" },
+      { "<leader>gc", "<cmd>GeminiSwitchToCli<cr>", desc = "Spawn or switch to AI session" },
+      { "<leader>gS", "<cmd>GeminiSend<cr>", mode = { "x" }, desc = "Send selection to Gemini" },
     },
   },
 }
