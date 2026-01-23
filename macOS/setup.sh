@@ -29,11 +29,12 @@ fi
 if [[ ! -f "/opt/homebrew/bin/brew" ]]; then
   echo -e "${warning}Brew not found, Try installing...${reset}"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
   echo -e "${sucess}Brew installed successfully${reset}"
 else
   echo -e "${sucess}Brew already installed${reset}"
 fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Must have anything
 echo -e "\n${info}Installing must have packages...${reset}"
@@ -49,8 +50,7 @@ brew install git \
   eza \
   lazygit \
   git-delta \
-  yq \
-  antigravity
+  yq
 
 echo -e "${sucess}All packages installed${reset}"
 
@@ -73,7 +73,7 @@ echo -e "${info}MacOS Settings...${reset}"
 
 defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
 defaults write com.apple.Dock autohide -bool TRUE
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 DOTFILE_DIR="$(pwd)/.dotfiles"
 
@@ -90,13 +90,17 @@ cd "$DOTFILE_DIR" || exit
 stow -D .
 stow .
 echo -e "${info} Building bat themes cache...${reset}"
-bat cache --build
 
 echo -e "${info} Changing themes fast-synstax-hightlight...${reset}"
-fast-theme XDG:catppuccin-mocha
+
+source ~/.zshenv
 
 # install bun
 echo -e "${info} Installing bun packages...${reset}"
 curl -fsSL https://bun.com/install | bash
 echo -e "${info} Installed bun packages...${reset}"
+
+echo -e "${warning} Please run manually cmd below to change bat + fast-synstax-hightlight theme: ${reset}"
+echo -e "${info}bat cache --build ${reset}"
+echo -e "${info}fast-theme XDG:catppuccin-mocha${reset}"
 echo -e "${sucess}Done.${reset}"
