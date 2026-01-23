@@ -183,6 +183,12 @@ if [ -d ~/Library/Application\ Support/Google/Chrome/ ]; then
   remove_paths
 fi
 
+if [ -d ~/Library/Caches/BraveSoftware/Brave-Browser/Default/Cache ]; then
+  collect_paths ~/Library/Caches/BraveSoftware/Brave-Browser/Default/Cache/*
+  msg 'Clearing Brave Browser Cache Files...'
+  remove_paths
+fi
+
 collect_paths ~/Music/iTunes/iTunes\ Media/Mobile\ Applications/*
 msg 'Cleaning up iOS Applications...'
 remove_paths
