@@ -1,243 +1,252 @@
 [
   {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.save",
+  },
+  {
+    "command": "-markdown.extension.onBackspaceKey",
+    "key": "backspace",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/ && !suggestWidgetVisible && !editorHasMultipleSelections && vim.mode != 'Normal' && vim.mode != 'Visual' && vim.mode != 'VisualBlock' && vim.mode != 'VisualLine' && vim.mode != 'SearchInProgressMode' && vim.mode != 'CommandlineInProgress' && vim.mode != 'Replace' && vim.mode != 'EasyMotionMode' && vim.mode != 'EasyMotionInputMode' && vim.mode != 'SurroundInputMode' && !markdown.extension.editor.cursor.inFencedCodeBlock && !markdown.extension.editor.cursor.inMathEnv",
+  },
+  {
     "key": "shift shift",
     "command": "workbench.action.quickOpen",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   // --- 1. GENERAL & NAVIGATION (Điều hướng chung) ---
   {
     "key": "cmd+shift+o",
-    "command": "workbench.action.quickOpen" // Tìm file
+    "command": "workbench.action.quickOpen", // Tìm file
   },
   {
     "key": "cmd+shift+a",
-    "command": "workbench.action.showCommands" // Tìm lệnh (All Actions)
+    "command": "workbench.action.showCommands", // Tìm lệnh (All Actions)
   },
   {
     "key": "cmd+e",
-    "command": "workbench.action.openRecent" // Mở file gần đây
+    "command": "workbench.action.openRecent", // Mở file gần đây
   },
   {
     "key": "cmd+f12",
     "command": "workbench.action.gotoSymbol",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "cmd+l",
-    "command": "workbench.action.gotoLine" // Đến dòng số...
+    "command": "workbench.action.gotoLine", // Đến dòng số...
   },
   {
     "key": "cmd+alt+left",
-    "command": "workbench.action.navigateBack"
+    "command": "workbench.action.navigateBack",
   },
   {
     "key": "cmd+alt+right",
-    "command": "workbench.action.navigateForward"
+    "command": "workbench.action.navigateForward",
   },
 
   // --- 2. EDITING (Chỉnh sửa code) ---
   {
     "key": "alt+enter",
     "command": "editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly",
   },
   {
     "key": "cmd+alt+l",
     "command": "editor.action.formatDocument",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly",
   },
   {
     "key": "shift+f6",
     "command": "editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly",
   },
   // Xử lý xung đột CMD+D (Mặc định là chọn từ tiếp theo -> Chuyển thành Duplicate Line)
   {
     "key": "cmd+d",
-    "command": "-editor.action.addSelectionToNextFindMatch"
+    "command": "-editor.action.addSelectionToNextFindMatch",
   },
   {
     "key": "cmd+d",
     "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly",
   },
   {
     "key": "cmd+backspace",
     "command": "editor.action.deleteLines",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly",
   },
   {
     "key": "cmd+shift+j",
     "command": "editor.action.joinLines",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly",
   },
   {
     "key": "alt+up",
     "command": "editor.action.smartSelect.grow",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "alt+down",
     "command": "editor.action.smartSelect.shrink",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "cmd+shift+enter",
     "command": "acceptSelectedSuggestion",
-    "when": "suggestWidgetVisible"
+    "when": "suggestWidgetVisible",
   },
 
   // --- 3. SEARCH & REPLACE (Tìm kiếm) ---
   {
     "key": "cmd+f",
-    "command": "actions.find"
+    "command": "actions.find",
   },
   {
     "key": "cmd+shift+f",
-    "command": "workbench.action.findInFiles"
+    "command": "workbench.action.findInFiles",
   },
   {
     "key": "cmd+r",
-    "command": "editor.action.startFindReplaceAction"
+    "command": "editor.action.startFindReplaceAction",
   },
   {
     "key": "cmd+shift+r",
-    "command": "workbench.action.replaceInFiles"
+    "command": "workbench.action.replaceInFiles",
   },
 
   // --- 4. GO TO DEFINITION (Đi tới định nghĩa) ---
   // Xử lý xung đột CMD+B (Mặc định là tắt mở Sidebar -> Chuyển thành Go to Def)
   {
     "key": "cmd+b",
-    "command": "-workbench.action.toggleSidebarVisibility"
+    "command": "-workbench.action.toggleSidebarVisibility",
   },
   {
     "key": "cmd+b",
     "command": "editor.action.revealDefinition",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "cmd+alt+b",
     "command": "editor.action.goToImplementation",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "alt+f7",
     "command": "editor.action.referenceSearch.trigger",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "ctrl+j",
     "command": "editor.action.showHover",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
 
   // --- 5. UI & WINDOWS (Giao diện) ---
   {
     "key": "cmd+1",
     "command": "workbench.view.explorer",
-    "when": "editorFocus"
+    "when": "editorFocus",
   },
   {
     "key": "cmd+1",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "!editorFocus"
+    "when": "!editorFocus",
   },
   {
     "key": "alt+f12",
     "command": "workbench.action.terminal.focus",
-    "when": "!terminalFocus"
+    "when": "!terminalFocus",
   },
   {
     "key": "shift+escape",
     "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminalFocus"
+    "when": "terminalFocus",
   },
   {
     "key": "cmd+shift+f12",
-    "command": "workbench.action.maximizeEditor"
+    "command": "workbench.action.maximizeEditor",
   },
   {
     "key": "cmd+w",
-    "command": "workbench.action.closeActiveEditor"
+    "command": "workbench.action.closeActiveEditor",
   },
   {
     "key": "ctrl+left",
-    "command": "workbench.action.previousEditor"
+    "command": "workbench.action.previousEditor",
   },
   {
     "key": "ctrl+right",
-    "command": "workbench.action.nextEditor"
+    "command": "workbench.action.nextEditor",
   },
 
   // --- 6. GIT OPERATIONS ---
   {
     "key": "cmd+k",
-    "command": "git.commit"
+    "command": "git.commit",
   },
   {
     "key": "cmd+shift+k",
-    "command": "git.push"
+    "command": "git.push",
   },
   {
     "key": "cmd+t",
-    "command": "git.pull"
+    "command": "git.pull",
   },
 
   // --- 7. DEBUGGING ---
   {
     "key": "cmd+f8",
-    "command": "editor.debug.action.toggleBreakpoint"
+    "command": "editor.debug.action.toggleBreakpoint",
   },
   {
     "key": "f8",
     "command": "workbench.action.debug.stepOver",
-    "when": "inDebugMode"
+    "when": "inDebugMode",
   },
   {
     "key": "f7",
     "command": "workbench.action.debug.stepInto",
-    "when": "inDebugMode"
+    "when": "inDebugMode",
   },
   {
     "key": "cmd+alt+r",
     "command": "workbench.action.debug.continue",
-    "when": "inDebugMode"
+    "when": "inDebugMode",
   },
   {
     "key": "cmd+f9",
-    "command": "workbench.action.tasks.build"
+    "command": "workbench.action.tasks.build",
   },
 
   // --- 8. ANTIGRAVITY AI & REFACTOR ---
   {
     "key": "ctrl+t",
     "command": "editor.action.refactor",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly",
   },
   {
     "key": "cmd+n",
     "command": "antigravity.generateCode", // Generate Code (Giống Alt+Insert bên Win)
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   // Xử lý xung đột: Cmd+L đã dùng cho GoToLine, nên dùng Cmd+Alt+C cho Chat
   {
     "key": "cmd+alt+c",
-    "command": "antigravity.chat.focus"
+    "command": "antigravity.chat.focus",
   },
   {
     "key": "cmd+alt+i",
     "command": "antigravity.action.explainError",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly",
   },
   {
     "key": "cmd+alt+shift+r",
     "command": "antigravity.action.editCode",
-    "when": "editorTextFocus && editorHasSelection"
+    "when": "editorTextFocus && editorHasSelection",
   },
   {
     "key": "cmd+shift+u",
     "command": "antigravity.action.generateUnitTests",
-    "when": "editorTextFocus"
-  }
+    "when": "editorTextFocus",
+  },
 ]
