@@ -3,8 +3,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export FUNCNEST=10000
 export EDITOR="nvim"
-export NVM_DIR="$XDG_DATA_HOME/nvm"
-export NVM_COMPLETION=true
 export BAT_THEME="Catppuccin Mocha"
 export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:\
 *.tar=01;31:*.zip=01;31:*.7z=01;31:*.rar=01;31:*.gz=01;31:\

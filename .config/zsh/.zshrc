@@ -24,8 +24,7 @@ zinit wait lucid light-mode for \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions \
-  lukechilds/zsh-nvm
+    zsh-users/zsh-completions
 
 export HISTSIZE=50000
 export SAVEHIST=50000
@@ -58,3 +57,9 @@ source "$ZDOTDIR/plugins/aliases.zsh"
 
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --use-on-cd --resolve-engines --shell zsh)"
+fi
