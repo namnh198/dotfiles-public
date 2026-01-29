@@ -2,6 +2,7 @@
   "features": {
     "edit_prediction_provider": "copilot",
   },
+  "restore_on_startup": "last_session",
   "agent": {
     "always_allow_tool_actions": true,
     "play_sound_when_agent_done": true,
@@ -30,11 +31,30 @@
   "autosave": "on_window_change",
   "format_on_save": "on",
   "vim_mode": true,
+  "colorize_brackets": true,
   "icon_theme": "Catppuccin Mocha",
   "theme": {
     "dark": "Catppuccin Mocha",
     "light": "Catppuccin Latte",
   },
+  "title_bar": {
+    "show_user_picture": false,
+    "show_branch_icon": true,
+  },
+  "status_bar": {
+    "cursor_position_button": false,
+    "experimental.show": true,
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true,
+    "show": true,
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "lsp_document_colors": "inlay",
+  "use_system_window_tabs": true,
   "file_scan_exclusions": [
     "**/.git",
     "**/.DS_Store",

@@ -10,7 +10,7 @@
     "context": "Workspace",
     "bindings": {
       "ctrl-s": "workspace::Save",
-      //"shift shift": "file_finder::Toggle",
+      "shift shift": "file_finder::Toggle",
     },
   },
   {
@@ -20,18 +20,9 @@
     },
   },
   {
-    "context": "vim_mode == Insert",
+    "context": "Editor && vim_mode == insert",
     "bindings": {
-      "ctrl-s": "workspace::Save",
-    },
-  },
-  {
-    "context": "Dock",
-    "bindings": {
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w l": "workspace::ActivatePaneRight",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown",
+      "j k": "vim::NormalBefore",
     },
   },
 ]
