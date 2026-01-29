@@ -8,7 +8,11 @@
 .config/github-copilot/
 .config/iterm2/
 .config/zsh/*
+.config/.wrangler
 !.config/zsh/.zshrc
 !.config/zsh/starship.toml
 !.config/zsh/plugins/
 !.config/zsh/plugins/*
+.config/zed/*
+!.config/zed/settings.json
+!.config/zed/keymap.json
