@@ -22,6 +22,7 @@ fi
 alias lz=lazygit
 alias tm=tmux
 alias ta='tmux attach'
+alias oc="opencode"
 
 if command -v nvim >/dev/null 2>&1; then
   alias vimdiff='nvim -d'
