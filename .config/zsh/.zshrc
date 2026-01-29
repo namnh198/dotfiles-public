@@ -20,7 +20,7 @@ export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"
 
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
+    zsh-users/zsh-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
@@ -51,6 +51,7 @@ fi
 
 source "$ZDOTDIR/plugins/fzf.zsh"
 source "$ZDOTDIR/plugins/aliases.zsh"
+source "$ZDOTDIR/plugins/catppuccin_mocha-zsh-syntax-highlighting.zsh"
 
 # load local aliases if exists
 [ -f "${ZDOTDIR}/.aliases" ] && . "${ZDOTDIR}/.aliases"

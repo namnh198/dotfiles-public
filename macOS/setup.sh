@@ -6,6 +6,30 @@ error="\033[0;31m"
 info="\033[0;34m"
 reset="\033[0m"
 
+DOTFILE_PATH="$(pwd)/.dotfiles"
+INSTALL_APP=true
+INSTALL_NODE=true
+
+for arg in "$@"
+do
+  case $arg in
+    --no-app)
+       INSTALL_APP=false
+       shift
+       ;;
+    --no-node)
+      INSTALL_NODE=false
+       shift
+        ;;
+    --dotfiles=*)
+      DOTFILE_PATH="${arg#*=}"
+      shift
+      ;;
+    esac
+done
+
+export ZDOTDIR="$HOME/.config/zsh"
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -39,9 +63,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Must have anything
 echo -e "\n${info}Installing must have packages...${reset}"
 
+brew update
+
 brew install git \
   stow \
   bat \
+  zoxide \
   tmux \
   nvim \
   ripgrep \
@@ -54,53 +81,51 @@ brew install git \
 
 echo -e "${sucess}All packages installed${reset}"
 
-echo -e "\n${info}Installing application...${reset}"
-
-brew install --cask \
-  font-jetbrains-mono-nerd-font \
-  bitwarden \
-  raycast \
-  ghostty \
-  brave-browser \
-  insomnia \
-  mac-mouse-fix \
-  openkey \
-  orbstack \
-  the-unarchiver
-
-echo -e "${sucess}All apps installed${reset}"
-echo -e "${info}MacOS Settings...${reset}"
-
-defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
-defaults write com.apple.Dock autohide -bool TRUE
-defaults write -g ApplePressAndHoldEnabled -bool false
-
-DOTFILE_DIR="$(pwd)/.dotfiles"
-
 # Clone dotfiles repository
-if [ ! -d "$DOTFILE_DIR" ]; then
+if [ ! -d "$DOTFILE_PATH" ]; then
   echo -e "Cloning dotfiles repository..."
-  git clone https://github.com/namnh198/dotfiles-public "$DOTFILE_DIR"
+  git clone https://github.com/namnh198/dotfiles-public "$DOTFILE_PATH"
 fi
 
 # Reset stow
 echo -e "${info} Stowing dotfiles..."
-cd "$DOTFILE_DIR" || exit
+cd "$DOTFILE_PATH" || exit
 
 stow -D .
 stow .
+
 echo -e "${info} Building bat themes cache...${reset}"
+bat cache --build
 
-echo -e "${info} Changing themes fast-synstax-hightlight...${reset}"
 
-source ~/.zshenv
+if [[ "$INSTALL_APP" = true ]]; then
+  echo -e "\n${info}Installing application...${reset}"
 
-# install bun
-echo -e "${info} Installing bun packages...${reset}"
-curl -fsSL https://bun.com/install | bash
-echo -e "${info} Installed bun packages...${reset}"
+  brew install --cask \
+    font-jetbrains-mono-nerd-font \
+    bitwarden \
+    raycast \
+    ghostty \
+    brave-browser \
+    mac-mouse-fix \
+    openkey \
+    orbstack \
+    the-unarchiver \
+    zed
 
-echo -e "${warning} Please run manually cmd below to change bat + fast-synstax-hightlight theme: ${reset}"
-echo -e "${info}bat cache --build ${reset}"
-echo -e "${info}fast-theme XDG:catppuccin-mocha${reset}"
+  echo -e "${sucess}All apps installed${reset}"
+  echo -e "${info}MacOS Settings...${reset}"
+
+  defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
+  defaults write com.apple.Dock autohide -bool TRUE
+  defaults write -g ApplePressAndHoldEnabled -bool false
+fi
+
+if [[ "$INSTALL_NODE" = true ]]; then
+  echo -e "${info} Installing nodejs & bun...${reset}"
+  brew install fnm  oven-sh/bun/bun
+  fnm install --lts
+  fnm default --lts
+fi
+
 echo -e "${sucess}Done.${reset}"
