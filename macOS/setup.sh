@@ -10,22 +10,21 @@ DOTFILE_PATH="$(pwd)/.dotfiles"
 INSTALL_APP=true
 INSTALL_NODE=true
 
-for arg in "$@"
-do
+for arg in "$@"; do
   case $arg in
-    --no-app)
-       INSTALL_APP=false
-       shift
-       ;;
-    --no-node)
-      INSTALL_NODE=false
-       shift
-        ;;
-    --dotfiles=*)
-      DOTFILE_PATH="${arg#*=}"
-      shift
-      ;;
-    esac
+  --no-app)
+    INSTALL_APP=false
+    shift
+    ;;
+  --no-node)
+    INSTALL_NODE=false
+    shift
+    ;;
+  --dotfiles=*)
+    DOTFILE_PATH="${arg#*=}"
+    shift
+    ;;
+  esac
 done
 
 export ZDOTDIR="$HOME/.config/zsh"
@@ -94,15 +93,18 @@ cd "$DOTFILE_PATH" || exit
 stow -D .
 stow .
 
+echo -e "${info} Copying fonts..."
+mkdir -p "$HOME/Library/Fonts"
+cp -r ./macOS/fonts/* "$HOME/Library/Fonts/"
+echo -e "${sucess}Fonts copied${reset}"
+
 echo -e "${info} Building bat themes cache...${reset}"
 bat cache --build
-
 
 if [[ "$INSTALL_APP" = true ]]; then
   echo -e "\n${info}Installing application...${reset}"
 
   brew install --cask \
-    font-jetbrains-mono-nerd-font \
     bitwarden \
     raycast \
     ghostty \
@@ -123,9 +125,8 @@ fi
 
 if [[ "$INSTALL_NODE" = true ]]; then
   echo -e "${info} Installing nodejs & bun...${reset}"
-  brew install fnm  oven-sh/bun/bun
+  brew install fnm oven-sh/bun/bun
   fnm install --lts
-  fnm default --lts
 fi
 
 echo -e "${sucess}Done.${reset}"
