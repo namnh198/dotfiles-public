@@ -1,12 +1,16 @@
 {
-  "features": {
-    "edit_prediction_provider": "copilot",
+  "edit_predictions": {
+    "provider": "copilot",
+    "copilot": {
+      "enable_next_edit_suggestions": true,
+    },
   },
   "restore_on_startup": "last_session",
   "agent": {
     "always_allow_tool_actions": true,
     "play_sound_when_agent_done": true,
   },
+  "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
@@ -30,11 +34,10 @@
   },
   "autosave": "on_window_change",
   "format_on_save": "on",
-  "vim_mode": true,
   "colorize_brackets": true,
   "icon_theme": "Catppuccin Mocha",
   "theme": {
-    "dark": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha - No Italics",
     "light": "Catppuccin Latte",
   },
   "title_bar": {
