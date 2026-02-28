@@ -1,5 +1,6 @@
 alias c=clear
 alias g=git
+alias python=python3
 
 if command -v bat >/dev/null 2>&1; then
   alias cat='bat --paging=never --color=always'

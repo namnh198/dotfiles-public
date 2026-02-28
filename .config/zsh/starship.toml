@@ -1,6 +1,7 @@
 add_newline = false
 format = "$directory$git_branch$git_status$fill$php$python$lua$nodejs$docker_context$jobs$cmd_duration$line_break$character"
 palette = "catppuccin_mocha"
+scan_timeout = 100
 
 [character]
 error_symbol = "[✗](bold red)"
@@ -51,4 +52,3 @@ disabled = true
 
 [nodejs]
 detect_files = ['package.json', '.node-version']
-

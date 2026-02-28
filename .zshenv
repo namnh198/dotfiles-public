@@ -20,4 +20,5 @@ export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 export BUN_INSTALL="${XDG_DATA_HOME:-${HOME}/.local/share}/bun"
+export BUN_INSTALL_CACHE_DIR="${XDG_CACHE_DIR:-${HOME}/.cache/bun}"
 export PATH="$BUN_INSTALL/bin:$PATH"
